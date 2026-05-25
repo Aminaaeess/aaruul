@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ааруул — Mongolian Dried Curd</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F2E8CC;--parchment:#E8D8A8;--warm:#D4BE88;
+  --gold:#B8801E;--gold-lt:#D9A840;--gold-deep:#7A4E10;
+  --brown:#4A2C10;--dark:#1A0A02;--rust:#8B3A1A;
+  --grass:#5E7A42;--white:#FAF5E8;
+  --tx:#1A0A02;--txm:#4A2C10;--txl:#7A5830;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--cream);color:var(--tx);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:500;background:rgba(26,10,2,0.95);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:1rem 3.5rem;border-bottom:1px solid rgba(184,128,30,0.25)}
+.nav-logo{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:var(--gold-lt);letter-spacing:.2em}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.2em;color:rgba(242,232,204,.6);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold-lt)}
+.hero{height:100vh;min-height:700px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 4rem 5rem;position:relative;z-index:2}
+.hero-left::after{content:'';position:absolute;top:0;right:-1px;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--gold),transparent)}
+.hero-left::before{content:'';position:absolute;top:72px;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,transparent 0,transparent 6px,var(--gold) 6px,var(--gold) 10px,transparent 10px,transparent 16px,var(--gold-lt) 16px,var(--gold-lt) 17px);opacity:.4}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.55em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;animation:fu 1s ease both}
+.hero-h{font-family:'Cinzel',serif;font-size:clamp(3.8rem,6vw,6.2rem);font-weight:700;line-height:.9;color:var(--cream);letter-spacing:-.01em;animation:fu 1s .15s ease both}
+.hero-h .mn-script{display:block;font-family:'Cormorant Garamond',serif;font-size:.22em;font-weight:300;font-style:italic;letter-spacing:.45em;color:var(--gold-lt);margin-top:.8em;opacity:.85}
+.hero-divider{display:flex;align-items:center;gap:1rem;margin:2.2rem 0;animation:fu 1s .28s ease both}
+.hero-divider::before,.hero-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(184,128,30,.6),transparent)}
+.hero-divider::after{background:transparent;flex:0;display:none}
+.hero-divider-gem{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.hero-p{font-size:1.15rem;font-weight:300;font-style:italic;color:rgba(242,232,204,.72);line-height:1.8;max-width:400px;animation:fu 1s .38s ease both}
+.hero-btns{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;animation:fu 1s .5s ease both}
+.scroll-dn{position:absolute;bottom:2rem;left:5rem;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.35em;color:rgba(242,232,204,.35);animation:bob 2.8s ease infinite}
+.hero-stats{display:flex;gap:1.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(184,128,30,.2);animation:fu 1s .62s ease both}
+.hero-stat{text-align:center}
+.hero-stat-n{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:700;color:var(--gold-lt);display:block}
+.hero-stat-l{font-size:.7rem;letter-spacing:.08em;color:rgba(242,232,204,.45);display:block;margin-top:.15rem}
+.hero-right{position:relative;overflow:hidden;background:linear-gradient(160deg,#4A7CA0 0%,#6AACCF 25%,#8ABBD8 45%,#A8C47A 55%,#7A9B5A 70%,#5A7A3A 100%)}
+.hero-cloud{position:absolute;border-radius:50px;background:rgba(255,255,255,.55);filter:blur(2px)}
+.hc1{width:140px;height:36px;top:18%;left:8%;animation:cloudDrift 28s linear infinite}
+.hc2{width:90px;height:24px;top:24%;left:55%;animation:cloudDrift 22s 6s linear infinite}
+.hc3{width:110px;height:28px;top:12%;left:30%;animation:cloudDrift 34s 3s linear infinite}
+@keyframes cloudDrift{from{transform:translateX(-40px)}to{transform:translateX(60px)}}
+.hero-sun{position:absolute;top:14%;right:18%;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,#FFE570,#D9A840);box-shadow:0 0 60px rgba(255,220,80,.5),0 0 120px rgba(255,200,50,.2);animation:sunPulse 5s ease-in-out infinite}
+@keyframes sunPulse{0%,100%{box-shadow:0 0 60px rgba(255,220,80,.5),0 0 120px rgba(255,200,50,.2)}50%{box-shadow:0 0 80px rgba(255,220,80,.7),0 0 160px rgba(255,200,50,.3)}}
+.hero-right::before{content:'';position:absolute;top:72px;bottom:0;left:0;right:0;border-top:1px solid rgba(184,128,30,.2);pointer-events:none;z-index:3}
+.hero-right::after{content:'';position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to bottom,transparent,rgba(90,122,58,.6));pointer-events:none}
+.hero-scene-label{position:absolute;top:calc(72px + 2rem);left:2rem;z-index:4;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;color:rgba(255,255,255,.6);text-transform:uppercase;animation:fu 1s .7s ease both}
+.hero-right-tint{position:absolute;inset:0;background:linear-gradient(to bottom right,rgba(100,160,210,.12),rgba(80,120,50,.08));animation:dayTint 12s ease-in-out infinite alternate}
+@keyframes dayTint{from{opacity:1}to{opacity:.5}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+@keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.btn{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;padding:.9rem 2.2rem;text-decoration:none;cursor:pointer;border:none;text-transform:uppercase;transition:all .25s;display:inline-block}
+.btn-gold{background:var(--gold);color:var(--cream)}
+.btn-gold:hover{background:var(--gold-deep)}
+.btn-ghost{background:transparent;color:var(--cream);border:1px solid rgba(242,232,204,.4)}
+.btn-ghost:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
+@media(max-width:900px){.hero{grid-template-columns:1fr;grid-template-rows:auto 45vh}.hero-left{padding:7rem 2rem 3rem}.hero-right{min-height:340px}.scroll-dn{left:2rem}}
+.quote-band{background:var(--dark);padding:2.75rem 3rem;text-align:center;border-top:1px solid rgba(184,128,30,.2);border-bottom:1px solid rgba(184,128,30,.2)}
+.quote-band blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.35rem,3vw,1.9rem);font-style:italic;font-weight:300;color:var(--parchment);line-height:1.6;max-width:760px;margin:0 auto}
+.quote-band cite{display:block;margin-top:1rem;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.32em;color:var(--gold);font-style:normal;text-transform:uppercase}
+section{padding:7rem 2rem}
+.wrap{max-width:1120px;margin:0 auto}
+.lbl{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:block}
+.hl{font-family:'Cinzel',serif;font-size:clamp(1.9rem,4.5vw,3.1rem);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:1.4rem}
+.lead{font-size:1.2rem;font-weight:300;line-height:1.88;color:var(--txm);max-width:660px}
+.rule{width:72px;height:2px;background:var(--gold);margin:1.6rem 0}
+.rule.c{margin:1.6rem auto}
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-top:5rem}
+.collage{position:relative;height:580px}
+.c-main{position:absolute;top:0;left:0;width:70%;height:65%;overflow:hidden}
+.c-accent{position:absolute;right:0;bottom:15%;width:50%;height:46%;overflow:hidden;border:3px solid var(--white)}
+.c-sm{position:absolute;bottom:0;left:3%;width:36%;height:22%;overflow:hidden}
+.c-main img,.c-accent img,.c-sm img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.1) contrast(1.04);transition:transform .65s ease}
+.c-main:hover img,.c-accent:hover img{transform:scale(1.05)}
+.collage::before{content:'';position:absolute;top:-10px;right:30%;width:55px;height:55px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);z-index:2;pointer-events:none}
+.collage::after{content:'';position:absolute;bottom:28px;left:-10px;width:55px;height:55px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold);pointer-events:none}
+.c-cap{position:absolute;bottom:-1.75rem;right:0;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;color:var(--txl);text-transform:uppercase}
+.about-body p{font-size:1.12rem;line-height:1.95;color:var(--txm);margin-bottom:1.35rem}
+.about-body p strong{color:var(--dark);font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--warm);margin-top:2.75rem}
+.stat{padding:1.25rem;text-align:center;border-right:1px solid var(--warm)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Cinzel',serif;font-size:1.7rem;font-weight:700;color:var(--gold-deep);display:block}
+.stat-l{font-size:.78rem;letter-spacing:.06em;color:var(--txl);margin-top:.2rem;display:block}
+#curd{padding:0;background:var(--dark)}
+.curd-split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.curd-photo{overflow:hidden;position:relative}
+.curd-photo img{width:100%;height:100%;object-fit:cover;filter:sepia(.15) contrast(1.06) brightness(.88);transition:transform .7s ease;display:block}
+.curd-photo:hover img{transform:scale(1.05)}
+.curd-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--dark));pointer-events:none}
+.curd-panel{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+.curd-panel .lbl{color:var(--gold-lt)}
+.curd-panel .hl{color:var(--cream)}
+.curd-panel p{font-size:1.12rem;line-height:1.9;color:rgba(232,216,168,.72);margin-bottom:1.15rem}
+.curd-panel em{color:var(--gold-lt);font-style:italic}
+.tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.75rem}
+.tag{padding:.3rem .85rem;border:1px solid rgba(184,128,30,.4);font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;color:var(--gold-lt);text-transform:uppercase}
+#recipe{background:var(--cream)}
+.recipe-grid{display:grid;grid-template-columns:270px 1fr;gap:5rem;margin-top:4.5rem;align-items:start}
+.ing-box{background:var(--dark);padding:2.25rem;position:sticky;top:90px}
+.ing-box h3{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.4em;color:var(--gold-lt);text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(184,128,30,.25)}
+.ing-row{display:flex;justify-content:space-between;align-items:baseline;padding:.65rem 0;border-bottom:1px solid rgba(232,216,168,.09);gap:.75rem}
+.ing-row:last-child{border-bottom:none}
+.in{font-size:1rem;color:var(--parchment)}
+.ia{font-size:.9rem;font-style:italic;color:rgba(232,216,168,.5);white-space:nowrap}
+.step{display:grid;grid-template-columns:44px 1fr;gap:1.75rem;padding-bottom:3.2rem;margin-bottom:.5rem;border-bottom:1px solid var(--warm);opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.step.on{opacity:1;transform:none}
+.step:last-child{border-bottom:none}
+.sn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.3em;color:var(--gold);padding-top:.4rem}
+.si h4{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--dark);letter-spacing:.05em;margin-bottom:.85rem}
+.si p{font-size:1.1rem;line-height:1.9;color:var(--txm)}
+.stip{margin-top:1rem;padding:.95rem 1.2rem;border-left:2px solid var(--gold);background:rgba(184,128,30,.06);font-size:.97rem;font-style:italic;color:var(--gold-deep);line-height:1.65}
+.step-vis{margin-top:1.25rem}
+#var{background:var(--white)}
+.var-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:5rem;align-items:start}
+.var-photo{overflow:hidden;position:relative;aspect-ratio:4/5}
+.var-photo img{width:100%;height:100%;object-fit:cover;filter:sepia(.1) contrast(1.05);transition:transform .65s}
+.var-photo:hover img{transform:scale(1.04)}
+.var-photo-lbl{position:absolute;bottom:1rem;left:1.2rem;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;color:var(--cream);text-transform:uppercase;background:rgba(26,10,2,.6);padding:.3rem .7rem}
+.var-list{display:flex;flex-direction:column;gap:1.25rem}
+.var-item{padding:1.4rem 1.65rem;border:1px solid var(--warm);border-left:3px solid var(--gold);background:var(--cream);transition:background .2s,border-color .2s;cursor:default}
+.var-item:hover{background:var(--white);border-left-color:var(--rust)}
+.var-item h3{font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.1em;color:var(--dark);margin-bottom:.45rem}
+.var-item p{font-size:1rem;color:var(--txl);line-height:1.7}
+#exp{background:var(--cream)}
+.exp-top{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:5rem}
+.exp-photo{overflow:hidden;aspect-ratio:3/2}
+.exp-photo img{width:100%;height:100%;object-fit:cover;filter:sepia(.08) contrast(1.05);transition:transform .65s;display:block}
+.exp-photo:hover img{transform:scale(1.04)}
+.exp-copy p{font-size:1.15rem;line-height:1.9;color:var(--txm);margin-bottom:1.3rem}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--warm);border:1px solid var(--warm);margin-top:3.5rem}
+.tile{background:var(--white);padding:2.25rem 2rem;transition:background .2s}
+.tile:hover{background:var(--cream)}
+.tile-ico{font-size:1.4rem;margin-bottom:.85rem;display:block}
+.tile h3{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.12em;color:var(--dark);text-transform:uppercase;margin-bottom:.65rem}
+.tile p{font-size:1.02rem;line-height:1.75;color:var(--txl)}
+#quiz{background:var(--dark);padding:7rem 2rem}
+#quiz .lbl{color:var(--gold-lt)}
+#quiz .hl{color:var(--cream)}
+#quiz .lead{color:rgba(232,216,168,.6)}
+.qbox{max-width:680px;margin:3.5rem auto 0;border:1px solid rgba(184,128,30,.32);background:rgba(242,232,204,.03);padding:3rem 3.5rem}
+.qprog{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.4em;color:var(--gold);margin-bottom:1.65rem;text-transform:uppercase}
+.qq{font-family:'Cinzel',serif;font-size:1.15rem;color:var(--cream);line-height:1.55;margin-bottom:1.85rem}
+.qopts{display:flex;flex-direction:column;gap:.6rem}
+.qo{padding:.9rem 1.45rem;border:1px solid rgba(184,128,30,.28);background:transparent;color:var(--parchment);font-family:'Cormorant Garamond',serif;font-size:1.08rem;cursor:pointer;text-align:left;transition:border-color .2s,background .2s}
+.qo:hover:not(:disabled){border-color:var(--gold);background:rgba(184,128,30,.08)}
+.qo.right{border-color:#7AB05A;background:rgba(122,176,90,.1);color:#A8D882}
+.qo.wrong{border-color:#C0392B;background:rgba(192,57,43,.1);color:#E88}
+.qo:disabled{cursor:default}
+.qfb{margin-top:1.4rem;padding:1rem 1.4rem;border-left:2px solid var(--gold);background:rgba(184,128,30,.07);font-style:italic;font-size:1.03rem;color:rgba(232,216,168,.8);display:none;line-height:1.65}
+.qfb.on{display:block}
+.qnxt{margin-top:1.4rem;display:none}
+.qnxt.on{display:block}
+.qdone{display:none;text-align:center}
+.qdone.on{display:block}
+.qsc{font-family:'Cinzel',serif;font-size:3.2rem;font-weight:700;color:var(--gold-lt)}
+.qscl{font-size:1.15rem;color:rgba(232,216,168,.65);margin:.5rem 0 1.85rem;font-style:italic}
+footer{background:#0E0601;color:var(--cream);padding:4rem 2rem 3rem;text-align:center}
+.f-orn{width:190px;margin:0 auto 1.5rem;height:1px;position:relative;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.f-orn::before{content:'✦';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#0E0601;padding:0 .7rem;color:var(--gold);font-size:.75rem}
+.f-logo{font-family:'Cinzel',serif;font-size:1.55rem;font-weight:700;color:var(--gold-lt);letter-spacing:.2em;margin-bottom:.4rem}
+.f-mn{font-size:2rem;color:var(--gold);opacity:.45;margin:.7rem 0}
+footer p{font-size:.93rem;line-height:1.9;color:rgba(242,232,204,.38)}
+footer em{color:rgba(242,232,204,.62);font-style:italic}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+#making{background:var(--dark);padding:7rem 2rem}
+#making .lbl{color:var(--gold-lt)}
+#making .hl{color:var(--cream)}
+.making-intro{font-size:1.18rem;font-weight:300;font-style:italic;color:rgba(232,216,168,.65);line-height:1.9;max-width:620px;margin-top:1rem}
+#game-wrap{margin-top:3.5rem;border:1px solid rgba(184,128,30,.3);display:grid;grid-template-columns:1fr 340px;min-height:480px;position:relative;overflow:hidden}
+#gm-overlay{position:absolute;inset:0;z-index:20;background:rgba(14,6,1,.88);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);transition:opacity .5s ease}
+#gm-overlay.hidden{opacity:0;pointer-events:none}
+.gm-card{text-align:center;padding:3rem;max-width:420px}
+.gm-mini{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:1.25rem}
+.gm-card h3{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:1rem}
+.gm-card p{font-size:1.08rem;font-style:italic;font-weight:300;color:rgba(232,216,168,.65);line-height:1.8;margin-bottom:2rem}
+#gm-start{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:1rem 2.5rem;background:var(--gold);color:var(--cream);border:none;cursor:pointer;transition:background .25s}
+#gm-start:hover{background:var(--gold-deep)}
+#gm-scene{position:relative;overflow:hidden;min-height:440px;background:linear-gradient(180deg,#5A9AC0 0%,#8ABDD8 35%,#A8C87A 55%,#7A9B5A 75%,#4A6A2A 100%);transition:background 1.2s ease}
+#gm-scene.phase-1{background:linear-gradient(180deg,#5A9AC0 0%,#8ABDD8 35%,#A8C87A 55%,#7A9B5A 75%,#4A6A2A 100%)}
+#gm-scene.phase-2{background:linear-gradient(180deg,#4A7AA0 0%,#6A9DB8 35%,#98B86A 55%,#6A8B4A 75%,#3A5A20 100%)}
+#gm-scene.phase-3{background:linear-gradient(180deg,#7AAFCA 0%,#98C5D8 35%,#B0CA7A 55%,#88A55A 75%,#5A7A3A 100%)}
+#gm-scene.phase-4{background:linear-gradient(180deg,#C8A040 0%,#D8B858 25%,#E8C878 40%,#A8B868 55%,#6A8A48 80%,#4A6A28 100%)}
+#gm-scene.phase-5{background:linear-gradient(180deg,#5A9AC0 0%,#88BCDA 30%,#A8C878 52%,#7A9B58 72%,#4A6A28 100%)}
+.sc-cloud{position:absolute;border-radius:40px;background:rgba(255,255,255,.5);filter:blur(1.5px);animation:sc-drift 20s linear infinite}
+.sc1{width:100px;height:26px;top:12%;left:5%}
+.sc2{width:70px;height:18px;top:18%;left:55%;animation-duration:26s;animation-delay:-8s}
+.sc3{width:85px;height:22px;top:8%;left:30%;animation-duration:32s;animation-delay:-4s}
+@keyframes sc-drift{from{transform:translateX(-20px)}to{transform:translateX(30px)}}
+.sc-sun{position:absolute;top:10%;right:15%;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle,#FFE570,#D9A840);box-shadow:0 0 40px rgba(255,220,80,.5);animation:sc-sun-glow 4s ease-in-out infinite}
+@keyframes sc-sun-glow{0%,100%{box-shadow:0 0 40px rgba(255,220,80,.5)}50%{box-shadow:0 0 65px rgba(255,220,80,.8)}}
+.sc-el{opacity:0;transition:opacity .8s ease,transform .8s ease;transform:translateY(10px)}
+.sc-el.show{opacity:1;transform:translateY(0)}
+.sc-steam{position:absolute;width:10px;height:20px;border-radius:50%;background:rgba(255,255,255,.35);filter:blur(3px);animation:steamUp 2.2s ease-in infinite;opacity:0}
+.sc-steam.active{opacity:1}
+.ss1{left:48%;bottom:44%;animation-delay:0s}
+.ss2{left:51%;bottom:46%;animation-delay:.6s;width:8px;height:16px}
+.ss3{left:45%;bottom:43%;animation-delay:1.1s;width:7px;height:14px}
+@keyframes steamUp{0%{transform:translateY(0) scaleX(1);opacity:.6}100%{transform:translateY(-40px) scaleX(1.8);opacity:0}}
+#gm-progress{width:100%;height:6px;background:rgba(184,128,30,.2);margin:1.25rem 0;border-radius:0}
+#gm-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));transition:width .4s ease}
+#gm-ui{background:rgba(242,232,204,.04);border-left:1px solid rgba(184,128,30,.25);padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:center}
+#gm-step{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
+#gm-title{font-family:'Cinzel',serif;font-size:1.25rem;font-weight:600;color:var(--cream);margin-bottom:1rem;line-height:1.3}
+#gm-text{font-size:1.05rem;font-style:italic;font-weight:300;color:rgba(232,216,168,.65);line-height:1.8;margin-bottom:.5rem}
+#gm-action{margin-top:1.25rem;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:.9rem 1.5rem;background:var(--gold);color:var(--cream);border:none;cursor:pointer;transition:background .25s,transform .1s;width:100%}
+#gm-action:hover{background:var(--gold-deep)}
+#gm-action:active{transform:scale(.97)}
+#gm-action:disabled{background:rgba(184,128,30,.25);color:rgba(232,216,168,.35);cursor:default}
+#gm-action.holding{background:var(--rust);animation:pulse-btn .4s ease infinite alternate}
+@keyframes pulse-btn{from{opacity:.85}to{opacity:1}}
+#gm-complete{display:none;text-align:center;padding:2rem 1rem}
+#gm-complete.show{display:block}
+#gm-complete h3{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-bottom:1rem}
+#gm-complete p{font-size:1.05rem;font-style:italic;color:rgba(232,216,168,.65);line-height:1.8;margin-bottom:1.5rem}
+#gm-restart{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:.8rem 1.8rem;background:transparent;color:var(--cream);border:1px solid rgba(242,232,204,.35);cursor:pointer;transition:all .25s}
+#gm-restart:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
+.gm-dots{display:flex;gap:.5rem;margin-bottom:1.5rem}
+.gm-dot{width:8px;height:8px;border-radius:50%;background:rgba(184,128,30,.25);transition:background .4s}
+.gm-dot.done{background:var(--gold)}
+.gm-dot.active{background:var(--gold-lt);box-shadow:0 0 6px rgba(217,168,64,.6)}
+.hold-ring{width:70px;height:70px;margin:1rem auto;border-radius:50%;position:relative;display:none}
+.hold-ring.show{display:block}
+.hold-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.hold-ring circle{fill:none;stroke:rgba(184,128,30,.2);stroke-width:4}
+.hold-ring .fill{stroke:var(--gold-lt);stroke-dasharray:188;stroke-dashoffset:188;transition:stroke-dashoffset .1s linear;stroke-linecap:round}
+
+/* VIDEO SECTION */
+.vid-section{background:var(--dark);padding:7rem 2rem;border-top:1px solid rgba(184,128,30,.18);border-bottom:1px solid rgba(184,128,30,.18)}
+.vid-player-wrap{position:relative;max-width:860px;margin:0 auto}
+.vid-corner{position:absolute;width:48px;height:48px;z-index:2;pointer-events:none}
+.vid-corner.tl{top:-14px;left:-14px;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+.vid-corner.tr{top:-14px;right:-14px;border-top:2px solid var(--gold);border-right:2px solid var(--gold)}
+.vid-corner.bl{bottom:-14px;left:-14px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold)}
+.vid-corner.br{bottom:-14px;right:-14px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+.vid-inner{position:relative;background:#0E0601;border:1px solid rgba(184,128,30,.3);overflow:hidden}
+.vid-inner video{width:100%;display:block;max-height:540px;object-fit:contain;background:#0E0601}
+.vid-caption{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border:1px solid rgba(184,128,30,.2);border-top:none;background:rgba(242,232,204,.025)}
+.vid-caption-l{display:flex;align-items:center;gap:.75rem}
+.vid-gem{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.vid-caption-title{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+.vid-caption-r{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:rgba(232,216,168,.4)}
+.vid-callouts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,128,30,.15);border:1px solid rgba(184,128,30,.15);max-width:860px;margin:3rem auto 0}
+.vid-callout{background:rgba(242,232,204,.03);padding:1.75rem 1.5rem;text-align:center}
+.vid-callout:nth-child(2){border-left:1px solid rgba(184,128,30,.15);border-right:1px solid rgba(184,128,30,.15)}
+.vid-callout-n{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;color:var(--gold-lt);display:block;margin-bottom:.4rem}
+.vid-callout-h{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.18em;color:var(--cream);text-transform:uppercase;display:block;margin-bottom:.4rem}
+.vid-callout-p{font-size:.92rem;font-style:italic;color:rgba(232,216,168,.45);line-height:1.6}
+
+@media(max-width:900px){
+  .about-grid,.curd-split,.recipe-grid,.var-layout,.exp-top{grid-template-columns:1fr}
+  .collage{height:360px}
+  .ing-box{position:static}
+  .tiles{grid-template-columns:1fr}
+  nav{padding:.85rem 1.5rem}
+  .nav-links{gap:1.2rem}
+  .qbox{padding:2rem 1.5rem}
+  .curd-panel{padding:3rem 2rem}
+  #game-wrap{grid-template-columns:1fr}
+  #gm-scene{min-height:280px}
+  #gm-ui{border-left:none;border-top:1px solid rgba(184,128,30,.25)}
+  .vid-callouts{grid-template-columns:1fr}
+  .vid-callout:nth-child(2){border-left:none;border-right:none;border-top:1px solid rgba(184,128,30,.15);border-bottom:1px solid rgba(184,128,30,.15)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ааруул</div>
+  <ul class="nav-links">
+    <li><a href="#about">Heritage</a></li>
+    <li><a href="#curd">The Curd</a></li>
+    <li><a href="#recipe">Method</a></li>
+    <li><a href="#video">Real Process</a></li>
+    <li><a href="#var">Varieties</a></li>
+    <li><a href="#making">Experience</a></li>
+    <li><a href="#exp">Visit</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Mongolia · White Food · Цагаан Идээ</p>
+    <h1 class="hero-h">
+      Ааруул
+      <span class="mn-script">ᠠᠭᠠᠷᠤᠤᠯ · Mongolian Dried Curd</span>
+    </h1>
+    <div class="hero-divider"><div class="hero-divider-gem"></div></div>
+    <p class="hero-p">Born on the vast steppe, shaped by nomadic hands, dried beneath an open sky — the food that sustained an empire for a thousand years.</p>
+    <div class="hero-btns">
+      <a href="#video" class="btn btn-gold">Watch Real Making</a>
+      <a href="#about" class="btn btn-ghost">Discover Heritage</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-n">3,000+</span><span class="hero-stat-l">Years old</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">5</span><span class="hero-stat-l">Milk types</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">1 yr</span><span class="hero-stat-l">Shelf life</span></div>
+    </div>
+    <div class="scroll-dn">↓ &nbsp; Scroll to explore</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-tint"></div>
+    <div class="hero-scene-label">The Mongolian Steppe</div>
+    <div class="hero-cloud hc1"></div>
+    <div class="hero-cloud hc2"></div>
+    <div class="hero-cloud hc3"></div>
+    <div class="hero-sun"></div>
+    <svg viewBox="0 0 600 480" width="100%" height="100%" style="position:absolute;inset:0;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+      <path d="M0,340 Q80,295 180,315 Q280,295 380,320 Q480,300 600,318 L600,480 L0,480Z" fill="#5E8040" opacity=".7"/>
+      <path d="M0,360 Q100,335 220,348 Q340,332 460,350 Q530,342 600,352 L600,480 L0,480Z" fill="#4A6A2E"/>
+      <path d="M0,390 Q150,375 300,382 Q450,370 600,380 L600,480 L0,480Z" fill="#3A5220"/>
+      <path d="M0,300 Q60,260 120,280 Q180,260 240,278 Q300,258 360,276 Q420,256 480,272 Q540,252 600,268 L600,310 L0,310Z" fill="#6A8A50" opacity=".5"/>
+      <g transform="translate(55,290)">
+        <path d="M0,60 Q35,-10 70,60Z" fill="#4A3010"/>
+        <rect x="5" y="55" width="60" height="28" rx="0" fill="#5A3A18"/>
+        <rect x="27" y="62" width="16" height="21" rx="1" fill="#3A2010"/>
+        <ellipse cx="35" cy="28" rx="8" ry="4" fill="#6A4520"/>
+        <path d="M35,22 Q38,10 35,0" stroke="rgba(255,255,255,.3)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(440,308)" opacity=".65">
+        <path d="M0,45 Q26,-6 52,45Z" fill="#3A2008"/>
+        <rect x="4" y="41" width="44" height="20" fill="#4A2E10"/>
+        <rect x="20" y="47" width="12" height="14" rx="1" fill="#2A1808"/>
+      </g>
+      <g transform="translate(320,295)">
+        <line x1="0" y1="0" x2="0" y2="55" stroke="#6A4020" stroke-width="3" stroke-linecap="round"/>
+        <line x1="90" y1="0" x2="90" y2="55" stroke="#6A4020" stroke-width="3" stroke-linecap="round"/>
+        <line x1="0" y1="0" x2="90" y2="0" stroke="#8B5530" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="5" y1="25" x2="85" y2="25" stroke="#7A4A28" stroke-width="2" stroke-linecap="round"/>
+        <g fill="#F2E098" stroke="#C9A850" stroke-width=".7">
+          <line x1="15" y1="0" x2="15" y2="10" stroke="#8B6040" stroke-width="1"/>
+          <polygon points="15,10 23,17 15,24 7,17"/>
+          <line x1="32" y1="0" x2="32" y2="8" stroke="#8B6040" stroke-width="1"/>
+          <ellipse cx="32" cy="16" rx="8" ry="6"/>
+          <line x1="50" y1="0" x2="50" y2="10" stroke="#8B6040" stroke-width="1"/>
+          <polygon points="50,10 58,17 50,24 42,17"/>
+          <line x1="68" y1="0" x2="68" y2="9" stroke="#8B6040" stroke-width="1"/>
+          <ellipse cx="68" cy="17" rx="9" ry="5"/>
+        </g>
+      </g>
+      <g transform="translate(175,320)">
+        <ellipse cx="22" cy="38" rx="18" ry="6" fill="#FF8C2040"/>
+        <path d="M12,36 Q16,22 22,30 Q28,18 32,36 Q28,40 22,42 Q16,40 12,36Z" fill="#E86020"/>
+        <path d="M16,36 Q19,26 22,32 Q25,26 28,36 Q25,39 22,40 Q19,39 16,36Z" fill="#FFB840"/>
+        <ellipse cx="22" cy="28" rx="20" ry="6" fill="#5A3A18"/>
+        <path d="M2,28 L5,50 Q22,58 39,50 L42,28 Z" fill="#6A4520"/>
+        <ellipse cx="22" cy="28" rx="20" ry="6" fill="#4A2E10"/>
+        <ellipse cx="22" cy="28" rx="16" ry="4" fill="#F0E8D0" opacity=".7"/>
+      </g>
+      <g transform="translate(490,348)" fill="#2A4018" opacity=".75">
+        <ellipse cx="30" cy="22" rx="28" ry="13"/>
+        <path d="M50,16 Q62,8 64,14 Q66,20 58,22 Q54,22 50,20Z"/>
+        <rect x="10" y="30" width="5" height="18" rx="2"/>
+        <rect x="20" y="30" width="5" height="20" rx="2"/>
+        <rect x="35" y="30" width="5" height="18" rx="2"/>
+        <rect x="45" y="30" width="5" height="19" rx="2"/>
+      </g>
+      <text x="300" y="458" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="11" fill="#D9A840" font-style="italic" opacity=".7">The Mongolian Steppe · Land of the Blue Sky</text>
+    </svg>
+  </div>
+</div>
+
+<div class="quote-band">
+  <blockquote>
+    "In Mongolia, to offer white food is to offer your heart. Aaruul is not a snack — it is a greeting, a memory, a season."
+    <cite>— Mongolian nomadic tradition</cite>
+  </blockquote>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="rv">
+      <span class="lbl">Heritage &amp; History</span>
+      <h2 class="hl">The Soul of<br>Mongolian Dairy</h2>
+      <div class="rule"></div>
+      <p class="lead">Ааруул is among Mongolia's sacred <em>цагаан идээ</em> — "white foods" — dairy products symbolizing purity, hospitality, and the nomadic spirit shaping Central Asia for millennia.</p>
+    </div>
+    <div class="about-grid">
+      <div class="collage rv" style="display:flex;align-items:center;justify-content:center;background:var(--dark);border:1px solid rgba(184,128,30,.2);">
+        <svg viewBox="0 0 480 520" width="100%" style="max-width:460px;display:block" xmlns="http://www.w3.org/2000/svg">
+          <radialGradient id="bgGlow" cx="50%" cy="55%" r="50%">
+            <stop offset="0%" stop-color="#C9922A" stop-opacity=".18"/>
+            <stop offset="100%" stop-color="#1A0A02" stop-opacity="0"/>
+          </radialGradient>
+          <rect width="480" height="520" fill="#1A0A02"/>
+          <rect width="480" height="520" fill="url(#bgGlow)"/>
+          <rect x="30" y="360" width="420" height="52" rx="6" fill="#6B4020"/>
+          <rect x="36" y="354" width="408" height="16" rx="4" fill="#8B5530"/>
+          <path d="M80,340 Q100,300 160,312 Q200,295 255,308 Q310,295 360,312 Q405,300 415,335 Q400,358 310,366 Q220,372 155,366 Q90,358 80,340Z" fill="#F0DFA0"/>
+          <path d="M83,342 Q105,308 160,318 Q200,302 255,314 Q308,302 358,318 Q398,308 410,338 Q396,354 308,360 Q218,366 158,360 Q95,354 83,342Z" fill="#EDD888"/>
+          <path d="M200,325 Q240,315 280,325 Q260,338 240,340 Q220,338 200,325Z" fill="#C9A850" opacity=".35"/>
+          <path d="M140,330 Q175,322 210,328" stroke="#C9A050" stroke-width="1.2" fill="none" opacity=".5"/>
+          <g transform="translate(68,248) rotate(-8)"><polygon points="22,0 44,18 22,36 0,18" fill="#F2E098" stroke="#C9A850" stroke-width=".8"/></g>
+          <g transform="translate(145,218) rotate(5)"><polygon points="20,0 40,16 20,32 0,16" fill="#F5E8A8" stroke="#C9A850" stroke-width=".8"/></g>
+          <g transform="translate(218,205)"><ellipse cx="26" cy="16" rx="26" ry="16" fill="#EDD885" stroke="#C9A850" stroke-width=".8"/></g>
+          <g transform="translate(288,208) rotate(-4)"><polygon points="28,0 56,22 28,44 0,22" fill="#F0DFA0" stroke="#C9A850" stroke-width=".8"/></g>
+          <g transform="translate(372,238) rotate(6)"><ellipse cx="22" cy="14" rx="22" ry="14" fill="#F2E098" stroke="#C9A850" stroke-width=".8"/></g>
+          <g transform="translate(60,162)">
+            <path d="M0,12 Q15,2 30,12 Q45,22 60,12 Q75,2 90,12 Q105,22 120,12" stroke="#F2E098" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M0,12 Q15,2 30,12 Q45,22 60,12 Q75,2 90,12 Q105,22 120,12" stroke="#C9A850" stroke-width="1" fill="none" stroke-linecap="round" opacity=".6"/>
+          </g>
+          <g transform="translate(225,152)">
+            <rect x="0" y="0" width="8" height="28" rx="4" fill="#F2E098" stroke="#C9A850" stroke-width=".6"/>
+            <rect x="12" y="4" width="8" height="26" rx="4" fill="#EDD885" stroke="#C9A850" stroke-width=".6"/>
+            <rect x="24" y="0" width="8" height="30" rx="4" fill="#F0DFA0" stroke="#C9A850" stroke-width=".6"/>
+            <rect x="36" y="3" width="8" height="25" rx="4" fill="#F2E098" stroke="#C9A850" stroke-width=".6"/>
+            <text x="34" y="42" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#B89040" font-style="italic" opacity=".6">xorxoi aaruul</text>
+          </g>
+          <text x="240" y="108" text-anchor="middle" font-family="Cinzel,serif" font-size="13" fill="#D9A840" letter-spacing="4" opacity=".9">ААРУУЛ</text>
+          <text x="240" y="128" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="11" fill="#B89040" font-style="italic" opacity=".65">Sun-dried · Stone-hard · Intensely tangy</text>
+          <text x="240" y="426" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="#D9A840" opacity=".45" font-style="italic">Diamond · Round · Rope · Worm shapes</text>
+        </svg>
+        <div class="c-cap" style="position:absolute;bottom:1rem;right:1.5rem;">Aaruul · Traditional Dried Curd Shapes</div>
+      </div>
+      <div class="about-body rv">
+        <p>Aaruul has been made by Mongolian nomads for <strong>thousands of years</strong>. Crafted from the curd left after making airag or from cow, yak, camel, or sheep milk — it is pressed into shape, carved with family motifs, and dried under the open sky.</p>
+        <p>Each family bears its own traditional mold, passed from mother to daughter, turning a simple food into <strong>folk art and genealogy</strong>. Visitors often receive a piece carved with the host family's emblem.</p>
+        <p>Portable, nourishing, and enduring, aaruul traveled the Silk Road in the saddlebags of traders and the provisions of Chinggis Khan's cavalry. <strong>Today it remains the first food offered to any guest</strong> who crosses a threshold.</p>
+        <div class="stats">
+          <div class="stat"><span class="stat-n">3,000+</span><span class="stat-l">Years of tradition</span></div>
+          <div class="stat"><span class="stat-n">5</span><span class="stat-l">Milk types used</span></div>
+          <div class="stat"><span class="stat-n">1 yr+</span><span class="stat-l">Shelf life</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="curd">
+  <div class="curd-split">
+    <div class="curd-photo rv" style="display:flex;align-items:center;justify-content:center;background:#0E0601;overflow:hidden">
+      <svg viewBox="0 0 500 460" width="100%" height="100%" style="min-height:400px;display:block" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="500" height="460" fill="#120802"/>
+        <radialGradient id="curdGlow" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#8B5E1A" stop-opacity=".3"/><stop offset="100%" stop-color="#120802" stop-opacity="0"/></radialGradient>
+        <rect width="500" height="460" fill="url(#curdGlow)"/>
+        <rect x="0" y="295" width="500" height="12" fill="#7A5030"/>
+        <g transform="translate(155,242)">
+          <ellipse cx="95" cy="72" rx="88" ry="18" fill="#000" opacity=".35"/>
+          <polygon points="95,0 190,60 95,120 0,60" fill="#F0DFA0"/>
+          <polygon points="95,4 184,60 95,116 6,60" fill="#EDD888" opacity=".6"/>
+          <path d="M65,60 Q95,38 125,60 Q95,82 65,60Z" fill="#C9A850" opacity=".3"/>
+          <path d="M40,55 Q70,48 100,54" stroke="#C9A050" stroke-width="1.2" fill="none" opacity=".5"/>
+        </g>
+        <g transform="translate(42,278)">
+          <ellipse cx="50" cy="22" rx="50" ry="28" fill="#EDD885"/>
+          <ellipse cx="50" cy="18" rx="40" ry="20" fill="#F2E098" opacity=".55"/>
+        </g>
+        <g transform="translate(290,80)">
+          <path d="M0,10 Q14,0 28,10 Q42,20 56,10 Q70,0 84,10 Q98,20 112,10" stroke="#F2E098" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <path d="M0,10 Q14,0 28,10 Q42,20 56,10 Q70,0 84,10 Q98,20 112,10" stroke="#C9A850" stroke-width="1" fill="none" stroke-linecap="round" opacity=".65"/>
+        </g>
+      </svg>
+    </div>
+    <div class="curd-panel rv">
+      <span class="lbl">What Is Aaruul</span>
+      <h2 class="hl" style="color:var(--cream)">A Cheese Unlike<br>Any Other</h2>
+      <div class="rule"></div>
+      <p>Aaruul is not aged like European cheese — it is <em>sun-dried</em>. The curd is pressed firm, shaped by hand or mold, and left to desiccate over days on wooden racks until it is bone-hard and completely shelf-stable.</p>
+      <p>The result is intensely tangy, faintly sour, and deeply rich. You do not simply eat aaruul — you <em>suck it slowly</em>, letting it soften on the tongue and release its concentrated dairy flavour over minutes.</p>
+      <p>Its texture ranges from crumbly when fresh-dried to <em>nearly stone-hard</em> after months of curing. Both are prized in different contexts — the fresh for guests, the aged for travel and winter.</p>
+      <div class="tags">
+        <span class="tag">Tangy</span>
+        <span class="tag">High Protein</span>
+        <span class="tag">Slow Food</span>
+        <span class="tag">No Refrigeration</span>
+        <span class="tag">Ancient Method</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="recipe">
+  <div class="wrap">
+    <div class="rv">
+      <span class="lbl">Traditional Method</span>
+      <h2 class="hl">How to Make<br>Aaruul at Home</h2>
+      <div class="rule"></div>
+      <p class="lead">Patient, unhurried, and connected to the seasons. This is the cow's milk method practiced across the Mongolian countryside for generations.</p>
+    </div>
+    <div class="recipe-grid">
+      <div class="ing-box rv">
+        <h3>Ingredients</h3>
+        <div class="ing-row"><span class="in">Whole milk</span><span class="ia">5 litres</span></div>
+        <div class="ing-row"><span class="in">White vinegar or lemon</span><span class="ia">3–4 tbsp</span></div>
+        <div class="ing-row"><span class="in">Salt</span><span class="ia">optional pinch</span></div>
+        <div class="ing-row"><span class="in">Cheesecloth</span><span class="ia">1 large piece</span></div>
+        <div class="ing-row"><span class="in">Wooden mold</span><span class="ia">or hands</span></div>
+        <div class="ing-row"><span class="in">Direct sunshine</span><span class="ia">2–7 days</span></div>
+        <div style="margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(184,128,30,.18)">
+          <p style="font-size:.88rem;color:rgba(232,216,168,.45);font-style:italic;line-height:1.7">Best made in summer when milk is richest. Yak or camel milk gives a denser, more pungent result.</p>
+        </div>
+      </div>
+      <div class="steps">
+
+        <!-- STEP 1 -->
+        <div class="step">
+          <div class="sn">01</div>
+          <div class="si">
+            <h4>Boil &amp; Separate the Milk</h4>
+            <p>Pour whole milk into a heavy pot and bring slowly to a gentle boil, stirring occasionally. Once boiling, reduce heat and add vinegar or lemon juice one tablespoon at a time, stirring gently in slow circles. The milk will separate into white curds floating in pale yellowish whey.</p>
+            <div class="stip">Do not stir vigorously — gentle movements preserve larger curd pieces, giving better texture in the finished aaruul.</div>
+            <div class="step-vis">
+              <svg viewBox="0 0 520 140" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- pot -->
+                <ellipse cx="130" cy="58" rx="75" ry="20" fill="#8B6040"/>
+                <path d="M55,58 L62,118 Q130,132 198,118 L205,58 Z" fill="#A07050"/>
+                <ellipse cx="130" cy="58" rx="75" ry="20" fill="#7A5030"/>
+                <!-- steam lines -->
+                <path d="M100,48 Q105,30 100,15" stroke="#C8B070" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
+                <path d="M130,44 Q136,25 131,10" stroke="#C8B070" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
+                <path d="M160,48 Q165,30 161,14" stroke="#C8B070" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
+                <!-- milk in pot -->
+                <ellipse cx="130" cy="72" rx="62" ry="14" fill="#F5F0DC"/>
+                <!-- curds forming -->
+                <ellipse cx="115" cy="70" rx="12" ry="6" fill="#FFFFFF" opacity=".8"/>
+                <ellipse cx="138" cy="68" rx="10" ry="5" fill="#FFFFFF" opacity=".7"/>
+                <ellipse cx="152" cy="72" rx="9" ry="4" fill="#FFFFFF" opacity=".75"/>
+                <!-- handles -->
+                <rect x="40" y="68" width="18" height="8" rx="4" fill="#6A4020"/>
+                <rect x="202" y="68" width="18" height="8" rx="4" fill="#6A4020"/>
+                <!-- spoon -->
+                <line x1="160" y1="20" x2="148" y2="75" stroke="#8B6040" stroke-width="3" stroke-linecap="round"/>
+                <ellipse cx="145" cy="78" rx="10" ry="5" fill="#8B6040"/>
+                <!-- arrow -->
+                <line x1="240" y1="75" x2="285" y2="75" stroke="#B8801E" stroke-width="1.5" marker-end="url(#arr)" opacity=".7"/>
+                <!-- separated result -->
+                <rect x="295" y="44" width="80" height="64" rx="4" fill="#E8E0C8" stroke="#C8B070" stroke-width=".8"/>
+                <text x="335" y="65" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="11" fill="#7A5830" font-style="italic">white curds</text>
+                <rect x="295" y="80" width="80" height="28" rx="0 0 4 4" fill="#D4C898" opacity=".6"/>
+                <text x="335" y="98" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="#7A5830" font-style="italic">yellow whey</text>
+                <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#B8801E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step">
+          <div class="sn">02</div>
+          <div class="si">
+            <h4>Drain Overnight in Cheesecloth</h4>
+            <p>Line a colander with cheesecloth, ladle in the curds, gather the cloth into a bundle and hang it over a bowl. Drain for at least 2 hours — overnight is traditional. The longer it drains, the firmer and drier your aaruul will become.</p>
+            <div class="stip">Never discard the whey. Mongolians drink it warm, add it to bread dough, or feed it to livestock — nothing goes to waste on the steppe.</div>
+            <div class="step-vis">
+              <svg viewBox="0 0 520 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- rope -->
+                <line x1="200" y1="10" x2="200" y2="38" stroke="#8B6040" stroke-width="3" stroke-linecap="round"/>
+                <!-- cheesecloth bundle -->
+                <ellipse cx="200" cy="52" rx="42" ry="18" fill="#F5EDD8"/>
+                <path d="M158,52 Q165,38 200,42 Q235,38 242,52 Q235,75 200,82 Q165,75 158,52Z" fill="#EDE0C4"/>
+                <!-- cloth folds -->
+                <path d="M168,50 Q200,44 232,50" stroke="#D4C098" stroke-width="1" fill="none"/>
+                <path d="M164,58 Q200,52 236,58" stroke="#D4C098" stroke-width="1" fill="none" opacity=".6"/>
+                <!-- drip drops -->
+                <ellipse cx="200" cy="92" rx="3" ry="5" fill="#C8B870" opacity=".6"/>
+                <ellipse cx="195" cy="105" rx="2" ry="3" fill="#C8B870" opacity=".4"/>
+                <ellipse cx="203" cy="112" rx="2" ry="3" fill="#C8B870" opacity=".3"/>
+                <!-- bowl below -->
+                <path d="M168,132 Q200,148 232,132 L238,122 Q200,136 162,122 Z" fill="#8B6040"/>
+                <ellipse cx="200" cy="122" rx="38" ry="10" fill="#A07050"/>
+                <!-- whey in bowl -->
+                <ellipse cx="200" cy="122" rx="28" ry="6" fill="#D4C880" opacity=".6"/>
+                <!-- time label -->
+                <text x="290" y="75" font-family="Cormorant Garamond,serif" font-size="13" fill="#7A5830" font-style="italic">Drain 2–12 hrs</text>
+                <text x="290" y="95" font-family="Cormorant Garamond,serif" font-size="11" fill="#B8801E" opacity=".7">overnight = firmer curd</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step">
+          <div class="sn">03</div>
+          <div class="si">
+            <h4>Press &amp; Shape with Family Molds</h4>
+            <p>Unwrap the drained curd — it should feel like thick, crumbly fresh cheese. Press it firmly into carved wooden molds bearing your family's motif, or form by hand into rounds, diamonds, twisted ropes, or animal shapes. Children learn their family's shapes from early childhood.</p>
+            <div class="stip">Add a pinch of salt for a savory result, or a little sugar for sweetness. Some families press in dried sea buckthorn berries or wild herbs.</div>
+            <div class="step-vis">
+              <svg viewBox="0 0 520 120" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- mold wooden block -->
+                <rect x="40" y="30" width="80" height="60" rx="5" fill="#8B6040"/>
+                <rect x="46" y="36" width="68" height="48" rx="3" fill="#A07050"/>
+                <!-- carved pattern in mold -->
+                <path d="M65,55 Q80,44 95,55 Q80,66 65,55Z" fill="#7A4020" opacity=".7"/>
+                <circle cx="80" cy="55" r="6" fill="#6A3818" opacity=".5"/>
+                <!-- arrow -->
+                <line x1="140" y1="60" x2="168" y2="60" stroke="#B8801E" stroke-width="1.5" marker-end="url(#arr2)" opacity=".7"/>
+                <defs><marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#B8801E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+                <!-- shaped curd pieces -->
+                <!-- diamond -->
+                <polygon points="200,42 222,60 200,78 178,60" fill="#F2E098" stroke="#C9A850" stroke-width=".8"/>
+                <path d="M190,60 Q200,54 210,60 Q200,66 190,60Z" fill="#C9A850" opacity=".3"/>
+                <!-- round -->
+                <ellipse cx="258" cy="60" rx="22" ry="18" fill="#EDD885" stroke="#C9A850" stroke-width=".8"/>
+                <ellipse cx="258" cy="60" rx="13" ry="9" fill="#C9A850" opacity=".2"/>
+                <!-- rope twist -->
+                <path d="M298,50 Q310,42 322,50 Q334,58 346,50 Q358,42 370,50" stroke="#F0DFA0" stroke-width="6" fill="none" stroke-linecap="round"/>
+                <path d="M298,62 Q310,70 322,62 Q334,54 346,62 Q358,70 370,62" stroke="#EDD885" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7"/>
+                <!-- labels -->
+                <text x="200" y="98" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="#7A5830" font-style="italic">diamond</text>
+                <text x="258" y="98" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="#7A5830" font-style="italic">round</text>
+                <text x="334" y="98" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="#7A5830" font-style="italic">rope twist</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step">
+          <div class="sn">04</div>
+          <div class="si">
+            <h4>Sun-Dry on the Ger Roof — 3 to 7 Days</h4>
+            <p>Arrange shaped pieces on a clean wooden board or wire rack placed in full direct sunlight — traditionally on the roof of the ger, where maximum sun and wind reach. Turn pieces once daily. In Mongolia's dry continental climate, aaruul is ready in 3–5 days; in humid climates allow 7 days, or use a 50°C oven with the door slightly ajar.</p>
+            <div class="stip">Ready when the piece makes a hollow sound when tapped and feels bone-dry on the outside. The interior may remain very slightly yielding — that is correct.</div>
+            <div class="step-vis">
+              <svg viewBox="0 0 520 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- sun -->
+                <circle cx="440" cy="38" r="24" fill="#D9A840" opacity=".85"/>
+                <g stroke="#D9A840" stroke-width="2" opacity=".5">
+                  <line x1="440" y1="6" x2="440" y2="0"/>
+                  <line x1="440" y1="70" x2="440" y2="76"/>
+                  <line x1="408" y1="38" x2="402" y2="38"/>
+                  <line x1="472" y1="38" x2="478" y2="38"/>
+                  <line x1="418" y1="16" x2="414" y2="12"/>
+                  <line x1="462" y1="60" x2="466" y2="64"/>
+                  <line x1="418" y1="60" x2="414" y2="64"/>
+                  <line x1="462" y1="16" x2="466" y2="12"/>
+                </g>
+                <!-- ger dome outline -->
+                <path d="M30,120 Q120,55 210,120" fill="#5E7A42" stroke="#4A6030" stroke-width="1"/>
+                <path d="M30,120 L210,120" fill="#5E4020"/>
+                <line x1="120" y1="58" x2="120" y2="75" stroke="#8B6040" stroke-width="2"/>
+                <!-- wooden drying board on roof -->
+                <rect x="72" y="74" width="96" height="10" rx="2" fill="#8B6040"/>
+                <!-- curd pieces on board -->
+                <ellipse cx="88" cy="71" rx="9" ry="6" fill="#F2E098" stroke="#C9A850" stroke-width=".6"/>
+                <polygon points="103,65 113,72 103,79 93,72" fill="#EDD885" stroke="#C9A850" stroke-width=".6"/>
+                <ellipse cx="126" cy="71" rx="8" ry="5" fill="#F0DFA0" stroke="#C9A850" stroke-width=".6"/>
+                <ellipse cx="144" cy="71" rx="9" ry="6" fill="#EDD580" stroke="#C9A850" stroke-width=".6"/>
+                <!-- wind lines -->
+                <path d="M250,55 Q280,50 310,55" stroke="#8BB8D0" stroke-width="1.5" fill="none" stroke-dasharray="4,3" opacity=".5"/>
+                <path d="M255,68 Q290,63 315,68" stroke="#8BB8D0" stroke-width="1" fill="none" stroke-dasharray="4,3" opacity=".35"/>
+                <!-- days counter -->
+                <text x="340" y="80" font-family="Cinzel,serif" font-size="13" fill="#B8801E">Day 1</text>
+                <text x="340" y="100" font-family="Cinzel,serif" font-size="13" fill="#B8801E" opacity=".7">Day 3</text>
+                <text x="340" y="120" font-family="Cinzel,serif" font-size="13" fill="#B8801E" opacity=".5">Day 5–7 ✓</text>
+                <!-- vertical timeline line -->
+                <line x1="333" y1="72" x2="333" y2="125" stroke="#B8801E" stroke-width="1" opacity=".4"/>
+                <circle cx="333" cy="78" r="3" fill="#B8801E"/>
+                <circle cx="333" cy="98" r="3" fill="#B8801E" opacity=".7"/>
+                <circle cx="333" cy="118" r="3" fill="#B8801E" opacity=".5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="step">
+          <div class="sn">05</div>
+          <div class="si">
+            <h4>Store &amp; Present to Guests</h4>
+            <p>Store in a breathable cloth bag or wooden box — never sealed plastic, which traps moisture and causes mold. Properly dried aaruul keeps for a year or more without refrigeration. To present to guests, arrange on a blue silk cloth and offer with both hands extended — the highest gesture of welcome.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEO SECTION — Real Mongolian Aaruul Making ═══ -->
+<div id="video" class="vid-section">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:3.5rem">
+      <span class="lbl" style="display:block;text-align:center;margin-bottom:.9rem">From the Steppe</span>
+      <h2 class="hl" style="color:var(--cream);text-align:center">Watch It Being Made<br><span style="font-size:.52em;font-weight:300;color:var(--gold-lt);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.08em">Real Mongolian hands · Traditional method · Authentic process</span></h2>
+      <div class="rule c"></div>
+      <p style="font-size:1.12rem;font-weight:300;font-style:italic;color:rgba(232,216,168,.62);line-height:1.9;max-width:620px;margin:0 auto">A Mongolian family demonstrates the time-honoured craft of making aaruul — from warm milk to sun-dried curd — exactly as it has been done for generations on the open steppe.</p>
+    </div>
+
+    <div class="vid-player-wrap rv">
+      <div class="vid-corner tl"></div>
+      <div class="vid-corner tr"></div>
+      <div class="vid-corner bl"></div>
+      <div class="vid-corner br"></div>
+
+      <div class="vid-inner">
+        <video
+          id="aaruul-video"
+          controls
+          preload="metadata"
+          playsinline
+          style="width:100%;display:block;max-height:560px;object-fit:contain;background:#0E0601"
+        >
+          <source src="aaruul-making.mov" type="video/mp4">
+          <source src="aaruul-making.mov" type="video/quicktime">
+          <p style="color:var(--parchment);padding:2rem;text-align:center;font-style:italic;font-size:1.1rem">Your browser does not support this video format. Please download the file to view it.</p>
+        </video>
+      </div>
+
+      <div class="vid-caption">
+        <div class="vid-caption-l">
+          <div class="vid-gem"></div>
+          <span class="vid-caption-title">Mongolian Aaruul · Traditional Dairy Preparation · Real Footage</span>
+        </div>
+        <span class="vid-caption-r">цагаан идээ</span>
+      </div>
+    </div>
+
+    <div class="vid-callouts rv">
+      <div class="vid-callout">
+        <span class="vid-callout-n">01</span>
+        <span class="vid-callout-h">Boil &amp; Curdle</span>
+        <span class="vid-callout-p">Fresh milk is gently heated over fire, then acid is added to separate curds from whey</span>
+      </div>
+      <div class="vid-callout">
+        <span class="vid-callout-n">02</span>
+        <span class="vid-callout-h">Press &amp; Shape</span>
+        <span class="vid-callout-p">Soft curds are pressed through cloth, then hand-molded into the family's traditional shapes</span>
+      </div>
+      <div class="vid-callout">
+        <span class="vid-callout-n">03</span>
+        <span class="vid-callout-h">Sun-Dry</span>
+        <span class="vid-callout-p">Pieces are arranged on wooden racks beneath the open sky and dried for 3–7 days</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- VARIETIES -->
+<section id="var">
+  <div class="wrap">
+    <div class="rv">
+      <span class="lbl">Regional Character</span>
+      <h2 class="hl">Six Expressions<br>of One Tradition</h2>
+      <div class="rule"></div>
+      <p class="lead">Across Mongolia's 21 provinces, every family and region makes aaruul differently — distinct milks, shapes, drying times, and flavour profiles.</p>
+    </div>
+    <div class="var-layout">
+      <div class="var-photo rv" style="background:#0E0601;display:flex;align-items:center;justify-content:center;overflow:hidden;aspect-ratio:4/5">
+        <svg viewBox="0 0 380 480" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="display:block">
+          <rect width="380" height="480" fill="#120802"/>
+          <radialGradient id="vglow" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="#8B5E1A" stop-opacity=".22"/><stop offset="100%" stop-color="#120802" stop-opacity="0"/></radialGradient>
+          <rect width="380" height="480" fill="url(#vglow)"/>
+          <text x="190" y="36" text-anchor="middle" font-family="Cinzel,serif" font-size="11" fill="#D9A840" letter-spacing="4" opacity=".9">SIX VARIETIES</text>
+          <g transform="translate(30,60)"><polygon points="40,0 80,32 40,64 0,32" fill="#F5F0E0" stroke="#D4C898" stroke-width=".8"/><text x="40" y="82" text-anchor="middle" font-family="Cinzel,serif" font-size="7.5" fill="#D9A840" opacity=".8" letter-spacing="1">COW MILK</text><text x="40" y="93" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#B89040" opacity=".55" font-style="italic">mild · creamy white</text></g>
+          <g transform="translate(220,55)"><polygon points="40,0 80,32 40,64 0,32" fill="#E8C460" stroke="#C9A030" stroke-width=".8"/><text x="40" y="82" text-anchor="middle" font-family="Cinzel,serif" font-size="7.5" fill="#D9A840" opacity=".8" letter-spacing="1">YAK MILK</text><text x="40" y="93" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#B89040" opacity=".55" font-style="italic">rich · golden · luxury</text></g>
+          <g transform="translate(25,185)"><path d="M5,30 Q12,8 38,4 Q65,2 75,28 Q78,52 60,62 Q38,72 14,60 Q0,50 5,30Z" fill="#E8D8A8" stroke="#C4B080" stroke-width=".8"/><text x="40" y="84" text-anchor="middle" font-family="Cinzel,serif" font-size="7.5" fill="#D9A840" opacity=".8" letter-spacing="1">CAMEL MILK</text><text x="40" y="95" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#B89040" opacity=".55" font-style="italic">salty · pungent · Gobi</text></g>
+          <g transform="translate(218,180)"><ellipse cx="44" cy="30" rx="44" ry="30" fill="#EDE0C0" stroke="#C8B880" stroke-width=".8"/><text x="44" y="72" text-anchor="middle" font-family="Cinzel,serif" font-size="7.5" fill="#D9A840" opacity=".8" letter-spacing="1">SHEEP MILK</text><text x="44" y="83" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#B89040" opacity=".55" font-style="italic">nutty · mild · aged</text></g>
+          <g transform="translate(30,318)"><polygon points="40,0 80,30 40,60 0,30" fill="#F0C878" stroke="#C89040" stroke-width=".8"/><circle cx="28" cy="28" r="3" fill="#E05820" opacity=".55"/><circle cx="48" cy="22" r="2.5" fill="#E05820" opacity=".5"/><text x="40" y="76" text-anchor="middle" font-family="Cinzel,serif" font-size="7.5" fill="#D9A840" opacity=".8" letter-spacing="1">FLAVOURED</text><text x="40" y="87" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#B89040" opacity=".55" font-style="italic">sea buckthorn · honey</text></g>
+          <g transform="translate(218,312)"><polygon points="44,0 88,34 44,68 0,34" fill="#C8A040" stroke="#A07820" stroke-width=".8"/><text x="44" y="84" text-anchor="middle" font-family="Cinzel,serif" font-size="7.5" fill="#D9A840" opacity=".8" letter-spacing="1">SMOKED</text><text x="44" y="95" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#B89040" opacity=".55" font-style="italic">pine-smoked · herbed</text></g>
+          <text x="190" y="444" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9.5" fill="#B89040" opacity=".5" font-style="italic">All shapes · All milks · One tradition</text>
+        </svg>
+        <div class="var-photo-lbl">Six aaruul varieties illustrated</div>
+      </div>
+      <div class="var-list rv">
+        <div class="var-item"><h3>Cow Milk · Common</h3><p>The most widespread variety. Mild, tangy, creamy white. The everyday snack in every home, school lunchbox, and roadside stall across the country.</p></div>
+        <div class="var-item"><h3>Yak Milk · Mountain Luxury</h3><p>From the Khangai and Altai ranges. Richer and more golden — the aaruul is denser, butterier, more intense. Prized as a seasonal delicacy.</p></div>
+        <div class="var-item"><h3>Camel Milk · Gobi Desert</h3><p>Lower in fat, naturally rich in vitamin C. Camel-milk aaruul is crumbly, faintly salty, with a distinct pungency — a unique product of the southern desert provinces.</p></div>
+        <div class="var-item"><h3>Sheep Milk · Herding Provinces</h3><p>Less common but deeply traditional. Mild when fresh-dried, it develops a sharper, nuttier character with age — favoured by connoisseurs.</p></div>
+        <div class="var-item"><h3>Flavoured · Modern Urban</h3><p>Sugar, sea buckthorn, rose hip, and honey varieties sold in Ulaanbaatar's markets — approachable for newcomers, popular with younger generations.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="making">
+  <div class="wrap">
+    <div class="rv">
+      <span class="lbl">Nomadic Experience</span>
+      <h2 class="hl">Learn Aaruul<br>By Making It</h2>
+      <div class="rule"></div>
+      <p class="making-intro">Sit beside the fire inside a Mongolian ger and follow the same gentle process families have practiced for generations. Stir warm milk, press soft curds with your hands, shape them carefully, then leave them beneath the endless steppe sun.</p>
+    </div>
+    <div id="game-wrap" class="rv">
+      <div id="gm-overlay">
+        <div class="gm-card">
+          <span class="gm-mini">Traditional Dairy Craft</span>
+          <h3>🏺 Aaruul Making Journey</h3>
+          <p>This is not a fast arcade game. Move slowly, listen to the sounds of the ger, and experience how Mongolian families prepare aaruul together.</p>
+          <button id="gm-start">Begin the Process →</button>
+        </div>
+      </div>
+      <div id="gm-scene" class="phase-1">
+        <div class="sc-cloud sc1"></div>
+        <div class="sc-cloud sc2"></div>
+        <div class="sc-cloud sc3"></div>
+        <div class="sc-sun" id="sc-sun"></div>
+        <svg id="gm-svg" viewBox="0 0 560 400" width="100%" height="100%" style="position:absolute;inset:0;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <path d="M0,310 Q100,275 200,295 Q320,275 440,295 Q510,280 560,292 L560,400 L0,400Z" fill="#5E8040" opacity=".65"/>
+          <path d="M0,340 Q140,320 280,332 Q420,315 560,330 L560,400 L0,400Z" fill="#4A6A2E"/>
+          <path d="M0,368 Q140,355 280,362 Q420,352 560,360 L560,400 L0,400Z" fill="#3A5220"/>
+          <g id="sc-ger" class="sc-el">
+            <path d="M180,295 Q280,200 380,295Z" fill="#4A3010"/>
+            <rect x="190" y="280" width="180" height="55" fill="#5A3A18"/>
+            <rect x="265" y="295" width="30" height="40" rx="2" fill="#2E1A08"/>
+            <ellipse cx="280" cy="238" rx="18" ry="8" fill="#6A4520"/>
+            <path d="M274,226 Q279,205 274,188" stroke="rgba(255,255,255,.28)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+          <g id="sc-pot" class="sc-el">
+            <ellipse cx="280" cy="345" rx="20" ry="7" fill="#FF802030"/>
+            <path d="M265,342 Q271,325 280,335 Q289,320 295,342 Q289,348 280,350 Q271,348 265,342Z" fill="#E05818"/>
+            <path d="M270,342 Q274,330 280,337 Q286,330 290,342 Q286,346 280,347 Q274,346 270,342Z" fill="#FFB030"/>
+            <ellipse cx="280" cy="330" rx="22" ry="6" fill="#4A2E10"/>
+            <path d="M258,330 L261,352 Q280,362 299,352 L302,330Z" fill="#5A3818"/>
+            <ellipse cx="280" cy="330" rx="22" ry="6" fill="#3A2008"/>
+            <ellipse cx="280" cy="330" rx="18" ry="4.5" fill="#F5EED8" opacity=".8"/>
+            <rect x="249" y="333" width="10" height="5" rx="2.5" fill="#3A2008"/>
+            <rect x="296" y="333" width="10" height="5" rx="2.5" fill="#3A2008"/>
+          </g>
+          <g id="sc-steam-g" class="sc-el">
+            <path d="M268,322 Q272,306 268,292" stroke="rgba(255,255,255,.3)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M280,320 Q285,302 281,287" stroke="rgba(255,255,255,.22)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M292,322 Q297,307 294,294" stroke="rgba(255,255,255,.18)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          </g>
+          <g id="sc-drain" class="sc-el">
+            <line x1="280" y1="170" x2="280" y2="210" stroke="#8B6040" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="280" cy="170" r="4" fill="#6A4020"/>
+            <path d="M245,228 Q255,210 280,216 Q305,210 315,228 Q305,252 280,260 Q255,252 245,228Z" fill="#EDE0C4"/>
+            <path d="M250,230 Q280,222 310,230" stroke="#D4C098" stroke-width="1" fill="none" opacity=".6"/>
+            <path d="M280,260 Q280,272 278,278" stroke="#C8B870" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="278" cy="280" rx="3" ry="4" fill="#C8B870" opacity=".4"/>
+            <path d="M257,300 Q280,315 303,300 L307,292 Q280,305 253,292Z" fill="#7A4A20"/>
+            <ellipse cx="280" cy="292" rx="30" ry="8" fill="#8B5530"/>
+            <ellipse cx="280" cy="292" rx="22" ry="5" fill="#C8B870" opacity=".5"/>
+          </g>
+          <g id="sc-shape" class="sc-el">
+            <rect x="215" y="315" width="130" height="18" rx="3" fill="#8B6040"/>
+            <rect x="219" y="311" width="122" height="12" rx="2" fill="#A07050"/>
+            <polygon points="237,307 249,315 237,323 225,315" fill="#F2E098" stroke="#C9A850" stroke-width=".8"/>
+            <ellipse cx="270" cy="313" rx="14" ry="10" fill="#EDD885" stroke="#C9A850" stroke-width=".8"/>
+            <polygon points="300,307 312,315 300,323 288,315" fill="#F0DFA0" stroke="#C9A850" stroke-width=".8"/>
+          </g>
+          <g id="sc-rack" class="sc-el">
+            <line x1="230" y1="320" x2="230" y2="260" stroke="#7A4A20" stroke-width="3" stroke-linecap="round"/>
+            <line x1="330" y1="320" x2="330" y2="260" stroke="#7A4A20" stroke-width="3" stroke-linecap="round"/>
+            <line x1="230" y1="260" x2="330" y2="260" stroke="#8B5530" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="230" y1="290" x2="330" y2="290" stroke="#7A4A28" stroke-width="2" stroke-linecap="round"/>
+            <line x1="245" y1="260" x2="245" y2="270" stroke="#6A4020" stroke-width="1"/><polygon points="245,270 253,277 245,284 237,277" fill="#F2E098" stroke="#C9A850" stroke-width=".7"/>
+            <line x1="265" y1="260" x2="265" y2="269" stroke="#6A4020" stroke-width="1"/><ellipse cx="265" cy="277" rx="9" ry="6" fill="#EDD885" stroke="#C9A850" stroke-width=".7"/>
+            <line x1="285" y1="260" x2="285" y2="270" stroke="#6A4020" stroke-width="1"/><polygon points="285,270 293,277 285,284 277,277" fill="#F0DFA0" stroke="#C9A850" stroke-width=".7"/>
+            <line x1="305" y1="260" x2="305" y2="269" stroke="#6A4020" stroke-width="1"/><ellipse cx="305" cy="277" rx="8" ry="5" fill="#EDD580" stroke="#C9A850" stroke-width=".7"/>
+          </g>
+          <g id="sc-offer" class="sc-el">
+            <path d="M280,330 Q240,320 230,335 Q225,345 238,350 Q260,355 280,350Z" fill="#C8906A"/>
+            <path d="M280,330 Q320,320 330,335 Q335,345 322,350 Q300,355 280,350Z" fill="#C8906A"/>
+            <path d="M240,335 Q280,323 320,335 Q315,355 280,360 Q245,355 240,335Z" fill="#2244AA" opacity=".7"/>
+            <polygon points="265,337 275,344 265,351 255,344" fill="#F2E098" stroke="#C9A850" stroke-width=".8"/>
+            <ellipse cx="285" cy="342" rx="10" ry="7" fill="#EDD885" stroke="#C9A850" stroke-width=".8"/>
+            <polygon points="300,337 310,344 300,351 290,344" fill="#F0DFA0" stroke="#C9A850" stroke-width=".8"/>
+          </g>
+        </svg>
+        <div class="sc-steam ss1" id="steam1"></div>
+        <div class="sc-steam ss2" id="steam2"></div>
+        <div class="sc-steam ss3" id="steam3"></div>
+      </div>
+      <div id="gm-ui">
+        <div class="gm-dots" id="gm-dots">
+          <div class="gm-dot active" data-i="0"></div>
+          <div class="gm-dot" data-i="1"></div>
+          <div class="gm-dot" data-i="2"></div>
+          <div class="gm-dot" data-i="3"></div>
+          <div class="gm-dot" data-i="4"></div>
+        </div>
+        <div id="gm-step">Step 1 / 5</div>
+        <h4 id="gm-title">Warm the Milk</h4>
+        <p id="gm-text">Hold down the button to stir the milk slowly and steadily over the fire. Keep stirring until curds begin to form.</p>
+        <div class="hold-ring show" id="gm-ring">
+          <svg viewBox="0 0 70 70"><circle cx="35" cy="35" r="30"/><circle cx="35" cy="35" r="30" class="fill" id="ring-fill"/></svg>
+        </div>
+        <div id="gm-progress"><div id="gm-bar"></div></div>
+        <button id="gm-action">Hold to Stir</button>
+        <div id="gm-complete">
+          <h3>🎉 Aaruul Complete!</h3>
+          <p>Your aaruul has been sun-dried to perfection. Present it on a blue silk cloth to your guests with both hands — the highest gesture of Mongolian welcome.</p>
+          <button id="gm-restart">Begin Again ↺</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="exp">
+  <div class="wrap">
+    <div class="rv">
+      <span class="lbl">For Visitors</span>
+      <h2 class="hl">Finding Aaruul<br>in Mongolia</h2>
+      <div class="rule"></div>
+      <p class="lead">Whether staying in a ger camp or passing through Ulaanbaatar, encounters with aaruul await at every turn of the steppe road.</p>
+    </div>
+    <div class="exp-top">
+      <div class="exp-photo rv" style="background:#0E0601;overflow:hidden;display:flex;align-items:center;justify-content:center;aspect-ratio:3/2">
+        <svg viewBox="0 0 500 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="display:block">
+          <rect width="500" height="340" fill="#120802"/>
+          <radialGradient id="offerGlow" cx="50%" cy="65%" r="55%"><stop offset="0%" stop-color="#C9A020" stop-opacity=".28"/><stop offset="100%" stop-color="#120802" stop-opacity="0"/></radialGradient>
+          <rect width="500" height="340" fill="url(#offerGlow)"/>
+          <path d="M80,240 Q150,210 250,220 Q350,210 420,240 Q400,290 250,300 Q100,290 80,240Z" fill="#1A3A8A" opacity=".85"/>
+          <path d="M88,242 Q155,218 250,226 Q345,218 412,242 Q395,284 250,293 Q105,284 88,242Z" fill="#2244AA" opacity=".6"/>
+          <path d="M82,240 Q148,213 250,222 Q352,213 418,240" stroke="#D9A840" stroke-width="1" fill="none" opacity=".4"/>
+          <g transform="translate(200,200)">
+            <polygon points="50,0 100,40 50,80 0,40" fill="#F2E098" stroke="#C9A850" stroke-width="1"/>
+            <path d="M30,40 Q50,28 70,40 Q50,52 30,40Z" fill="#C9A850" opacity=".28"/>
+          </g>
+          <g transform="translate(130,212)"><ellipse cx="35" cy="22" rx="35" ry="22" fill="#EDD885" stroke="#C9A850" stroke-width=".8"/></g>
+          <g transform="translate(330,215) rotate(5)"><polygon points="32,0 64,25 32,50 0,25" fill="#F0DFA0" stroke="#C9A850" stroke-width=".8"/></g>
+          <path d="M100,290 Q70,275 60,300 Q55,320 80,325 Q120,330 170,316 Q160,295 130,290 Z" fill="#C8906A"/>
+          <path d="M400,290 Q430,275 440,300 Q445,320 420,325 Q380,330 330,316 Q340,295 370,290 Z" fill="#C8906A"/>
+          <text x="250" y="52" text-anchor="middle" font-family="Cinzel,serif" font-size="13" fill="#D9A840" letter-spacing="3" opacity=".9">AARUUL OFFERING</text>
+          <text x="250" y="72" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="11" fill="#B89040" font-style="italic" opacity=".65">Presented on blue silk · Both hands extended</text>
+        </svg>
+      </div>
+      <div class="rv">
+        <p>Mongolian hospitality is not a performance — it is a code of honour embedded in daily life. When a nomad family opens their ger door, the first act is always the same: white food, offered with both hands.</p>
+        <p>To receive aaruul graciously — even a small taste, even if it is not to your liking — is one of the most meaningful things a foreign visitor can do. It signals respect for a tradition that has survived empires and centuries.</p>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile rv"><span class="tile-ico">🏠</span><h3>Ger Camp Stays</h3><p>Book a traditional ger stay and join the host family at sunrise as they make fresh aaruul. Many camps offer hands-on dairy workshops with family molds you can try yourself.</p></div>
+      <div class="tile rv"><span class="tile-ico">🛒</span><h3>Naran Tuul Market</h3><p>Ulaanbaatar's vast outdoor "Black Market" dedicates entire sections to dairy. Dozens of varieties, regions, and ages side by side — sample freely and compare.</p></div>
+      <div class="tile rv"><span class="tile-ico">🐎</span><h3>Nomad Family Visits</h3><p>Operators in Khentii and Arkhangai arrange day visits to genuine herding families. Aaruul is always the first thing offered — accept with both hands.</p></div>
+      <div class="tile rv"><span class="tile-ico">🎪</span><h3>Naadam Festival — July</h3><p>During the national festival, food stalls overflow with traditional treats. Fresh-pressed and stone-hard aged pieces in every shape imaginable, all in one place.</p></div>
+      <div class="tile rv"><span class="tile-ico">✈️</span><h3>Taking It Home</h3><p>Fully dried aaruul clears customs easily and keeps for months without refrigeration. Vacuum-sealed packs are sold at Chinggis Khaan International Airport.</p></div>
+      <div class="tile rv"><span class="tile-ico">🤝</span><h3>Cultural Etiquette</h3><p>Receive with both hands or the right hand. Never outright refuse — set a piece aside gently if needed. Tasting is a gesture of friendship that transcends language.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="wrap">
+    <div class="rv" style="text-align:center">
+      <span class="lbl">Test Your Knowledge</span>
+      <h2 class="hl" style="color:var(--cream)">Are You an<br>Aaruul Expert?</h2>
+      <div class="rule c"></div>
+      <p class="lead" style="margin:0 auto;color:rgba(232,216,168,.6)">Five questions drawn from Mongolian dairy culture. How well do you know the steppe?</p>
+    </div>
+    <div class="qbox rv">
+      <div id="qm">
+        <div class="qprog" id="qp">Question 1 of 5</div>
+        <div class="qq" id="qq"></div>
+        <div class="qopts" id="qo"></div>
+        <div class="qfb" id="qf"></div>
+        <div class="qnxt" id="qn"><button class="btn btn-gold" onclick="nxt()">Next →</button></div>
+      </div>
+      <div class="qdone" id="qd">
+        <div class="qsc" id="qs"></div>
+        <div class="qscl" id="ql"></div>
+        <button class="btn btn-gold" onclick="rst()">Try Again</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-orn"></div>
+  <div class="f-logo">Ааруул</div>
+  <div class="f-mn">ᠠᠭᠠᠷᠤᠤᠯ</div>
+  <p>A tribute to Mongolia's living nomadic heritage.<br>Made with respect for the herders of the steppe.<br><br><em>Сайн уу — Welcome. Taste the steppe.</em></p>
+</footer>
+
+<script>
+const QS=[
+  {q:"What does 'цагаан идээ' mean — the sacred category that includes aaruul?",opts:["Golden food","White food","Sacred snack","Nomad bread"],c:1,fb:"'Цагаан идээ' means 'white food' — the honoured category of dairy products symbolizing purity, prosperity, and welcome in Mongolian culture."},
+  {q:"Where is aaruul traditionally dried in a Mongolian ger camp?",opts:["Inside near the stove","Buried underground","On the roof","Hanging from the door frame"],c:2,fb:"The roof of the ger receives maximum sunlight and wind — making it the ideal natural drying surface and a distinctive sight across the Mongolian countryside."},
+  {q:"How should you properly receive aaruul when offered by a Mongolian host?",opts:["Left hand only","Both hands or the right hand","With a bow but do not touch","Only if you plan to eat it at once"],c:1,fb:"Receiving food with both hands or the right hand is a sign of deep respect in Mongolian custom. Always accept graciously, even if only symbolically."},
+  {q:"Which variety of aaruul is considered a luxury from the mountain regions?",opts:["Camel milk","Sheep milk","Yak milk","Mare's milk"],c:2,fb:"Yak milk is richer and more buttery. Yaks graze at high altitude in the Khangai and Altai ranges, making their aaruul a prized seasonal specialty."},
+  {q:"Approximately how long can properly dried aaruul last without refrigeration?",opts:["3–5 days","2–4 weeks","Up to a year or more","Exactly 6 months"],c:2,fb:"When fully dried and stored in a breathable cloth bag, aaruul lasts well over a year — indispensable for nomadic life and Silk Road trade."}
+];
+let ci=0,sc=0,an=false;
+function rQ(){an=false;const q=QS[ci];document.getElementById('qp').textContent=`Question ${ci+1} of ${QS.length}`;document.getElementById('qq').textContent=q.q;const fb=document.getElementById('qf');fb.classList.remove('on');fb.textContent='';document.getElementById('qn').classList.remove('on');const oc=document.getElementById('qo');oc.innerHTML='';q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='qo';b.textContent=o;b.onclick=()=>pick(i);oc.appendChild(b);});}
+function pick(i){if(an)return;an=true;const q=QS[ci];document.querySelectorAll('.qo').forEach((b,j)=>{if(j===q.c)b.classList.add('right');else if(j===i&&i!==q.c)b.classList.add('wrong');b.disabled=true;});if(i===q.c)sc++;const fb=document.getElementById('qf');fb.textContent=(i===q.c?'✓ ':'✗ ')+q.fb;fb.classList.add('on');document.getElementById('qn').classList.add('on');}
+function nxt(){ci++;ci>=QS.length?done():rQ();}
+function done(){document.getElementById('qm').style.display='none';document.getElementById('qd').classList.add('on');document.getElementById('qs').textContent=`${sc} / ${QS.length}`;const lbs=["Keep exploring.","A promising start.","Well-travelled.","Deeply knowledgeable.","Aaruul Master."];document.getElementById('ql').textContent=lbs[sc]||"Well done.";}
+function rst(){ci=0;sc=0;document.getElementById('qd').classList.remove('on');document.getElementById('qm').style.display='block';rQ();}
+rQ();
+
+(function(){
+  const STEPS=[
+    {id:1,phase:'phase-1',title:'Warm the Milk',text:'Hold down the button to stir the milk slowly and steadily over the fire. Keep stirring until curds begin to form.',action:'Hold to Stir',type:'hold',holdTime:3500,show:['sc-ger','sc-pot','sc-steam-g'],hide:['sc-drain','sc-shape','sc-rack','sc-offer'],steam:true},
+    {id:2,phase:'phase-2',title:'Drain the Curds',text:'The milk has separated. Now wait patiently as the curds drain through the cheesecloth. Overnight if you can.',action:'Wait & Drain',type:'hold',holdTime:4000,show:['sc-ger','sc-drain'],hide:['sc-pot','sc-steam-g','sc-shape','sc-rack','sc-offer'],steam:false},
+    {id:3,phase:'phase-3',title:'Shape the Curd',text:"Press the soft curd into your family's traditional mold — diamond, round, or twisted rope. Each shape carries meaning.",action:'Press & Shape',type:'click',clicks:8,show:['sc-ger','sc-shape'],hide:['sc-drain','sc-rack','sc-offer'],steam:false},
+    {id:4,phase:'phase-4',title:'Sun-Dry on the Rack',text:'Arrange pieces on the drying rack beneath the steppe sun. Turn them once a day for 3–7 days. Patience is the final ingredient.',action:'Let it Dry',type:'hold',holdTime:4500,show:['sc-ger','sc-rack'],hide:['sc-shape','sc-offer'],steam:false},
+    {id:5,phase:'phase-5',title:'Offer to Your Guests',text:'Your aaruul is ready. Place it on a blue silk cloth and offer with both hands to your guests — the highest Mongolian honour.',action:'Present the Aaruul',type:'click',clicks:1,show:['sc-ger','sc-offer'],hide:['sc-rack'],steam:false}
+  ];
+  let cur=0,holding=false,holdProgress=0,holdInterval=null,clicksDone=0;
+  const startBtn=document.getElementById('gm-start'),overlay=document.getElementById('gm-overlay'),scene=document.getElementById('gm-scene'),stepLbl=document.getElementById('gm-step'),titleEl=document.getElementById('gm-title'),textEl=document.getElementById('gm-text'),bar=document.getElementById('gm-bar'),actionBtn=document.getElementById('gm-action'),ring=document.getElementById('gm-ring'),ringFill=document.getElementById('ring-fill'),complete=document.getElementById('gm-complete'),restart=document.getElementById('gm-restart'),dots=document.querySelectorAll('.gm-dot'),steamEls=[document.getElementById('steam1'),document.getElementById('steam2'),document.getElementById('steam3')];
+  function showScene(step){scene.className=step.phase;const all=['sc-ger','sc-pot','sc-steam-g','sc-drain','sc-shape','sc-rack','sc-offer'];all.forEach(id=>{const el=document.getElementById(id);if(!el)return;if(step.show.includes(id)){setTimeout(()=>el.classList.add('show'),80);}else{el.classList.remove('show');}});steamEls.forEach(s=>{s.classList.toggle('active',step.steam);});}
+  function updateDots(i){dots.forEach((d,j)=>{d.classList.remove('active','done');if(j<i)d.classList.add('done');else if(j===i)d.classList.add('active');});}
+  function setBar(pct){bar.style.width=pct+'%';const circ=188;if(ringFill)ringFill.style.strokeDashoffset=circ-(circ*pct/100);}
+  function loadStep(i){cur=i;const s=STEPS[i];stepLbl.textContent=`Step ${s.id} / ${STEPS.length}`;titleEl.textContent=s.title;textEl.textContent=s.text;actionBtn.textContent=s.action;actionBtn.disabled=false;actionBtn.classList.remove('holding');setBar(0);holdProgress=0;clicksDone=0;holding=false;updateDots(i);showScene(s);if(ring)ring.classList.toggle('show',s.type==='hold');}
+  function advance(){if(cur+1>=STEPS.length){actionBtn.style.display='none';if(ring)ring.style.display='none';complete.classList.add('show');updateDots(STEPS.length);}else{loadStep(cur+1);}}
+  function startHold(){if(STEPS[cur].type!=='hold')return;holding=true;actionBtn.classList.add('holding');const s=STEPS[cur];const increment=100/(s.holdTime/80);holdInterval=setInterval(()=>{if(!holding){clearInterval(holdInterval);return;}holdProgress=Math.min(100,holdProgress+increment);setBar(holdProgress);if(holdProgress>=100){clearInterval(holdInterval);holding=false;actionBtn.classList.remove('holding');actionBtn.disabled=true;setTimeout(advance,500);}},80);}
+  function stopHold(){holding=false;actionBtn.classList.remove('holding');clearInterval(holdInterval);if(STEPS[cur].type==='hold'&&holdProgress<100){const drain=setInterval(()=>{holdProgress=Math.max(0,holdProgress-3);setBar(holdProgress);if(holdProgress<=0)clearInterval(drain);},60);}}
+  function handleClick(){const s=STEPS[cur];if(s.type==='click'){clicksDone++;const pct=Math.min(100,(clicksDone/s.clicks)*100);setBar(pct);actionBtn.style.transform='scale(0.96)';setTimeout(()=>{actionBtn.style.transform='';},120);if(clicksDone>=s.clicks){actionBtn.disabled=true;setTimeout(advance,400);}}}
+  startBtn.addEventListener('click',()=>{overlay.classList.add('hidden');setTimeout(()=>{overlay.style.display='none';},500);loadStep(0);});
+  actionBtn.addEventListener('mousedown',()=>{STEPS[cur].type==='hold'?startHold():handleClick();});
+  actionBtn.addEventListener('touchstart',(e)=>{e.preventDefault();STEPS[cur].type==='hold'?startHold():handleClick();});
+  actionBtn.addEventListener('mouseup',stopHold);
+  actionBtn.addEventListener('mouseleave',stopHold);
+  actionBtn.addEventListener('touchend',stopHold);
+  restart.addEventListener('click',()=>{complete.classList.remove('show');actionBtn.style.display='';if(ring)ring.style.display='';loadStep(0);});
+})();
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rv,.step').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
